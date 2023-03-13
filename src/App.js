@@ -22,7 +22,7 @@ const App = () => {
 
           <div className="category-body-container"></div>
           <h2>{cat.title}</h2>
-          <p>Shopt Now</p>
+          <p>Shop Now</p>
         </div>
       ))}
     </div>
