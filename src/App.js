@@ -1,5 +1,5 @@
-import Hero from './components/hero/hero';
-import CategoryCarousel from './components/category-carousel/category-carousel';
+import Hero from './components/Hero/Hero';
+import CategoryCarousel from './components/CategoryCarousel/CategoryCarousel';
 
 const App = () => {
   return (

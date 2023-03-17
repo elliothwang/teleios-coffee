@@ -1,4 +1,4 @@
-import './category-carousel-card.styles.scss';
+import './CategoryCarouselCard.styles.scss';
 
 const CategoryCarouselCard = ({ category }) => {
   const { imageUrl, title } = category;
