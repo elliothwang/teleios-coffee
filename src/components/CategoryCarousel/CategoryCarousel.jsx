@@ -1,16 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CategoryCarouselCard from '../CategoryCarouselCard/CategoryCarouselCard';
 import categories from '../../assets/categories';
 import './CategoryCarousel.styles.scss';
+import useWindowSize from '../../helperFunctions';
 
 function CategoryCarousel({}) {
-  // const [windowSize, setWindowSize] = useState(getWindowSize());
+  const window = useWindowSize();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchPosition, setTouchPosition] = useState(null);
   const length = categories && categories.length;
-  const show = length - 1;
-
-  // const getWindowSize()
+  let show = length - 1;
 
   const next = () => {
     if (currentIndex < length - show) {
@@ -24,6 +24,42 @@ function CategoryCarousel({}) {
     }
   };
 
+  const handleTouchStart = (e) => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (diff > 5) {
+      next();
+    }
+
+    if (diff < -5) {
+      prev();
+    }
+
+    setTouchPosition(null);
+  };
+
+  let carouselDisplayCount;
+
+  // display 1 carousel item on mobile
+  if (window.width <= 730 && window.width > 0) {
+    show = 1;
+    carouselDisplayCount = `show-${show}`;
+  } else {
+    carouselDisplayCount = `show-${show}`;
+  }
+
   return (
     <div className="categories-container">
       <div className="carousel-container">
@@ -33,11 +69,13 @@ function CategoryCarousel({}) {
               &lt;
             </button>
           )}
-          <div className="carousel-content-wrapper">
+          <div
+            className="carousel-content-wrapper"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+          >
             <div
-              // className="carousel-content"
-              className={`carousel-content show-${show}`}
-              // style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              className={`carousel-content show-${carouselDisplayCount}`}
               style={{
                 transform: `translateX(-${currentIndex * (100 / show)}%)`,
               }}
