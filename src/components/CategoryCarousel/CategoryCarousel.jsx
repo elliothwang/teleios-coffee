@@ -50,14 +50,11 @@ function CategoryCarousel({}) {
     setTouchPosition(null);
   };
 
-  let carouselDisplayCount;
-
   // display 1 carousel item on mobile
   if (window.width <= 730 && window.width > 0) {
     show = 1;
-    carouselDisplayCount = `show-${show}`;
   } else {
-    carouselDisplayCount = `show-${show}`;
+    show = length - 1;
   }
 
   return (
@@ -75,7 +72,7 @@ function CategoryCarousel({}) {
             onTouchMove={handleTouchMove}
           >
             <div
-              className={`carousel-content show-${carouselDisplayCount}`}
+              className={`carousel-content show-${show}`}
               style={{
                 transform: `translateX(-${currentIndex * (100 / show)}%)`,
               }}

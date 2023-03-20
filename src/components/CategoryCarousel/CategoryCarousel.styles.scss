@@ -56,6 +56,10 @@
   right: 24px;
 }
 
+.carousel-content.show-1 > * {
+  width: 100%;
+}
+
 .carousel-content.show-2 > * {
   width: 50%;
 }
@@ -67,3 +71,10 @@
 .carousel-content.show-4 > * {
   width: calc(100% / 4);
 }
+
+// @media (hover: none) and (pointer: coarse) {
+//   .left-arrow,
+//   .right-arrow {
+//     display: none;
+//   }
+// }
