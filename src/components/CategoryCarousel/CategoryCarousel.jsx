@@ -5,6 +5,8 @@ import categories from '../../assets/categories';
 import './CategoryCarousel.styles.scss';
 import useWindowSize from '../../helperFunctions';
 
+// infinite scroll
+
 function CategoryCarousel({}) {
   const window = useWindowSize();
   const [currentIndex, setCurrentIndex] = useState(0);
