@@ -1,11 +1,11 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import CategoryCarouselCard from '../CategoryCarouselCard/CategoryCarouselCard';
-import categories from '../../assets/categories';
-import './CategoryCarousel.styles.scss';
-import useWindowSize from '../../helperFunctions';
+import React, { useState } from 'react';
+// ! FIX: import styles using new scaffoling system
+// import '../styles/main.scss';
+import CatalogItem from './CatalogItem';
+import categories from '../assets/elements/categories';
+import useWindowSize from '../helperFunctions';
 
-// infinite scroll
+// TODO: make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
 
 function CategoryCarousel({}) {
   const window = useWindowSize();
@@ -80,7 +80,7 @@ function CategoryCarousel({}) {
               }}
             >
               {categories.map((category) => (
-                <CategoryCarouselCard key={category.id} category={category} />
+                <CatalogItem key={category.id} category={category} />
               ))}
             </div>
           </div>
