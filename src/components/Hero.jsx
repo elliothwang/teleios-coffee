@@ -12,7 +12,7 @@ function Hero() {
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className="category-body-container">
+      <div className="hero-container">
         <div className="hero-title">
           <h1>Teleios Coffee</h1>
           <h2>An At-Home Brew For You</h2>

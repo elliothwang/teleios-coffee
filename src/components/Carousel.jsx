@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/main.scss';
 import CatalogItem from './CatalogItem';
 import categories from '../assets/elements/categories';
