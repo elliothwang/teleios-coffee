@@ -6,7 +6,7 @@ import useWindowSize from '../helperFunctions';
 
 // TODO: make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
 
-function CategoryCarousel({}) {
+function Carousel({}) {
   const window = useWindowSize();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchPosition, setTouchPosition] = useState(null);
@@ -97,4 +97,4 @@ function CategoryCarousel({}) {
   );
 }
 
-export default CategoryCarousel;
+export default Carousel;
