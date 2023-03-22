@@ -51,9 +51,12 @@ function CategoryCarousel({}) {
     setTouchPosition(null);
   };
 
-  // display 1 carousel item on mobile
-  if (window.width <= 730 && window.width > 0) {
+  // display 1 carousel item up to small-width screens
+  if (window.width <= 480 && window.width > 0) {
     show = 1;
+  } else if (window.width <= 768 && window.width > 481) {
+    // display 2 carousel items up to medium-width screens
+    show = 2;
   } else {
     show = length - 1;
   }
