@@ -1,6 +1,5 @@
 import React from 'react';
-// ! FIX: import styles using new scaffoling system
-// import '../styles/main.scss';
+import '../styles/main.scss';
 
 function Hero() {
   const imageUrl =

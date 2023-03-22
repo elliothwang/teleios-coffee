@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// ! FIX: import styles using new scaffoling system
-// import '../styles/main.scss';
+import '../styles/main.scss';
 import CatalogItem from './CatalogItem';
 import categories from '../assets/elements/categories';
 import useWindowSize from '../helperFunctions';
