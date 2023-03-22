@@ -1,7 +1,6 @@
 import '../styles/main.scss';
-import '../styles/main.scss';
 
-const CategoryCarouselCard = ({ category }) => {
+const CatalogItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
     <div className="category-container">
@@ -19,4 +18,4 @@ const CategoryCarouselCard = ({ category }) => {
   );
 };
 
-export default CategoryCarouselCard;
+export default CatalogItem;
