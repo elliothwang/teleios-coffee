@@ -14,7 +14,7 @@ function Hero() {
       />
       <div className="hero-container">
         <div className="hero-title">
-          <h1>Teleios Coffee</h1>
+          <h1>Wildwood Coffee</h1>
           <h2>An At-Home Brew For You</h2>
         </div>
         <button name="shop-now">Shop Now</button>

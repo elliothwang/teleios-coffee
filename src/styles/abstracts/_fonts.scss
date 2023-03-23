@@ -1,14 +1,14 @@
 // Font Imports
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Libre+Baskerville&family=Roboto+Slab&display=swap');
 
 // Font Variables
-$jost: 'Jost', sans-serif;
-$lato: 'Lato', sans-serif;
+$libre: 'Libre Baskerville', serif;
+$crimson: 'Crimson Text', serif;
+$roboto: 'Roboto Slab', serif;
 
 // Styles
 body {
-  font-family: $jost;
+  font-family: $roboto;
   font-weight: normal;
 }
 h1,
@@ -17,11 +17,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $lato;
+  font-family: $roboto;
   font-weight: normal;
 }
 
 .button {
-  font-family: $jost;
+  font-family: $roboto;
   font-weight: bold;
 }
