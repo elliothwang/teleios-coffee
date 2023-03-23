@@ -2,11 +2,11 @@ import { useState } from 'react';
 import '../styles/main.scss';
 import CatalogItem from './CatalogItem';
 import categories from '../assets/elements/categories';
-import useWindowSize from '../helperFunctions';
+import useWindowSize from '../assets/helper/helperFunctions';
 
 // TODO: make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
 
-function Carousel({}) {
+function Carousel() {
   const window = useWindowSize();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchPosition, setTouchPosition] = useState(null);
