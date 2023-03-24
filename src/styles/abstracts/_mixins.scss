@@ -89,13 +89,6 @@ $corner-size: 10vmin;
   align-items: center;
 }
 
-@mixin flex-col-ctr-ctr {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 @mixin flex-start-ctr {
   display: flex;
   justify-content: flex-start;
@@ -104,6 +97,20 @@ $corner-size: 10vmin;
 
 @mixin flex-ctr-start {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin flex-col-ctr-ctr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-col-ctr-start {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }

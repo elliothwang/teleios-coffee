@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../layouts/Navbar';
+import Nav from '../layouts/Nav';
 
 function Navigation() {
   return (
     <div>
-      <Navbar />
+      <Nav />
     </div>
   );
 }

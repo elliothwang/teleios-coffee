@@ -1,5 +1,24 @@
 .hero-container {
+  @include flex-start-ctr;
   height: 50vh;
   width: 100%;
-  background-color: $accent-brown-3;
+  background: url('https://ponbee.com/wp-content/uploads/high-quality-coffee-beans-800x416.jpg')
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.hero-info {
+  width: 100%;
+  margin: 0 25%;
+  color: $secondary-text-color;
+}
+
+button {
+  background-color: $button-background;
+  &:hover {
+    cursor: pointer;
+  }
 }

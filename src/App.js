@@ -7,6 +7,7 @@ import Subscriptions from './routes/Subscriptions';
 import Wholesale from './routes/Wholesale';
 import Account from './routes/Account';
 import Auth from './routes/Auth';
+import Admin from './routes/Admin';
 
 const App = () => {
   return (
