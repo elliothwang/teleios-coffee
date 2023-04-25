@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../styles/main.scss';
 import CatalogItem from './CatalogItem';
 import categories from '../assets/elements/categories';
-import useWindowSize from '../assets/helper/helperFunctions';
+import useWindowSize from '../utils/helperFunctions/window.util';
 
 // TODO: make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
 
