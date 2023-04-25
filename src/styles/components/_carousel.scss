@@ -1,5 +1,6 @@
 .carousel-container {
   width: 80%;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
@@ -51,11 +52,11 @@
 }
 
 .left-arrow {
-  left: 24px;
+  left: -5%;
 }
 
 .right-arrow {
-  right: 24px;
+  right: -5%;
 }
 
 .carousel-content.show-1 > * {

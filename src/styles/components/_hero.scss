@@ -2,8 +2,9 @@
   @include flex-start-ctr;
   height: 50vh;
   width: 100%;
-  background: url('https://ponbee.com/wp-content/uploads/high-quality-coffee-beans-800x416.jpg')
-    no-repeat center center fixed;
+  // background: url('https://ponbee.com/wp-content/uploads/high-quality-coffee-beans-800x416.jpg')
+  //   no-repeat center center fixed;
+  background-color: $accent-brown-2;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
