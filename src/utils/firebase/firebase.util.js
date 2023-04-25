@@ -43,20 +43,34 @@ export const db = getFirestore();
 export const auth = getAuth();
 
 export const createUser = async (user) => {
-  const userDocRef = doc(db, 'users', user.user.uid);
+  const userDocRef = doc(db, 'users', user.uid);
   console.log('userDocRef', userDocRef);
   const userSnapshot = await getDoc(userDocRef);
   console.log('snapshot', userSnapshot);
   console.log('snapshot exists?', userSnapshot.exists());
 
-  if (!userSnapshot.exists());
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = user;
+    const createdAt = new Date();
+
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+      });
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
+
+  return userDocRef;
 };
 
 // Google Log In
 export const signUpWithGoogle = async () => {
-  const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-  const user = await signInWithGooglePopup();
-  createUser(user);
+  const { user } = await signInWithPopup(auth, provider);
+  const userDocRef = await createUser(user);
 };
 
 // Email and Password Sign Up, Sign In, & Sign Out
