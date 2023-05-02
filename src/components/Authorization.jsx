@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/main.scss';
+import { getRedirectResult } from 'firebase/auth';
 import {
-  signUpWithGoogle,
+  auth,
+  signUpWithGooglePopup,
+  signUpWithGoogleRedirect,
   signUpWithEmail,
   signInWithEmail,
   signOutOfAcc,
+  createUser,
+  getRedirectResults,
 } from '../utils/firebase/firebase.util';
 
 function Authorization() {
@@ -30,6 +35,12 @@ function Authorization() {
   const handleLogout = async () => {
     await signOutOfAcc();
   };
+
+  // after redirect login, Authorization remounts and this useEffect runs
+  // calls getRedirectResults function which gets the redirect's result
+  useEffect(() => {
+    getRedirectResults();
+  }, []);
 
   return (
     <div>
@@ -60,7 +71,12 @@ function Authorization() {
         </p>
         <button onClick={handleLogout}>Logout</button>
       </div>
-      <button onClick={signUpWithGoogle}>Sign Up/In With Google</button>
+      <button onClick={signUpWithGooglePopup}>
+        Sign Up/In With Google Popup
+      </button>
+      <button onClick={signUpWithGoogleRedirect}>
+        Sign Up/In With Google Redirect
+      </button>
     </div>
   );
 }

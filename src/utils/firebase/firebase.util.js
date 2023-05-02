@@ -3,6 +3,7 @@ import { getAnalytics } from 'firebase/analytics';
 import {
   getAuth,
   signInWithRedirect,
+  getRedirectResult,
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
@@ -33,22 +34,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const provider = new GoogleAuthProvider();
+// instantiates new instance of googleAuthProvider class
+const googleProvider = new GoogleAuthProvider();
 
-provider.setCustomParameters({
+googleProvider.setCustomParameters({
   prompt: 'select_account',
 });
 
 export const db = getFirestore();
+// var auth keeps track of the authentication state of the entire application
 export const auth = getAuth();
 
+// Create User function which is called by every log-in method
 export const createUser = async (user) => {
+  // after user logs in via any one of the methods, get user's doc using doc function & uid + getDoc async function
   const userDocRef = doc(db, 'users', user.uid);
-  console.log('userDocRef', userDocRef);
   const userSnapshot = await getDoc(userDocRef);
-  console.log('snapshot', userSnapshot);
-  console.log('snapshot exists?', userSnapshot.exists());
 
+  // if user doc does NOT exist, use setDoc function to create user doc
+  // if user doc DOES exist, do nothing
   if (!userSnapshot.exists()) {
     const { displayName, email } = user;
     const createdAt = new Date();
@@ -63,14 +67,31 @@ export const createUser = async (user) => {
       return { error: error.message };
     }
   }
-
   return userDocRef;
 };
 
-// Google Log In
-export const signUpWithGoogle = async () => {
-  const { user } = await signInWithPopup(auth, provider);
+// Google Popup Sign Up/In
+export const signUpWithGooglePopup = async () => {
+  const { user } = await signInWithPopup(auth, googleProvider);
+  // set var userDocRef to either an existing doc in firebase or a new doc created by createUser's setDoc
   const userDocRef = await createUser(user);
+};
+
+// Google Redirect Sign Up/In (pt. 1)
+// simply calls the redirect to google login URL
+export const signUpWithGoogleRedirect = async () => {
+  const { user } = await signInWithRedirect(auth, googleProvider);
+};
+
+// Google Redirect Sign Up/In (pt. 2)
+// this syntax used because async functions return promises, not functions -- useEffect requires a "cleanup" function to be returned
+export const getRedirectResults = () => {
+  (async () => {
+    const response = await getRedirectResult(auth);
+    if (response) {
+      const userDocRef = await createUser(response.user);
+    }
+  })();
 };
 
 // Email and Password Sign Up, Sign In, & Sign Out
