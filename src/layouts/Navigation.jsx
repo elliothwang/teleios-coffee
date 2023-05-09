@@ -19,24 +19,33 @@ function Navigation() {
   return (
     <>
       <nav className="navbar">
-        <Link to="/" className="nav-logo">
-          Logo
-        </Link>
+        <ul className={open ? 'nav-links active' : 'nav-links'}>
+          <li className="nav-text-item">
+            <Link to="/shop" className="nav-link leftmost">
+              Shop
+            </Link>
+          </li>
+          <li className="nav-text-item">
+            <Link to="/shop" className="nav-link">
+              Subscriptions
+            </Link>
+          </li>
+        </ul>
         <div onClick={handleClick} className="nav-icon">
           {open ? 'close' : 'open'}
         </div>
         <ul className={open ? 'nav-links active' : 'nav-links'}>
-          <li className="nav-item">
+          <li className="nav-icon-item">
             <Link className="nav-link" onClick={closeMenu}>
               <Search />
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-icon-item">
             <Link to="/account" className="nav-link" onClick={closeMenu}>
               <Person />
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-icon-item">
             <Link to="/cart" className="nav-link" onClick={closeMenu}>
               <Cart />
             </Link>

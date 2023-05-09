@@ -6,25 +6,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2rem;
-}
-
-.nav-logo {
-  text-decoration: none;
-  color: white;
+  padding: 0.5rem 0;
 }
 
 .nav-links {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-gap: 20px;
+  grid-gap: 1.5rem;
   list-style: none;
+}
+
+.leftmost {
+  margin-left: -1rem;
+}
+
+.nav-text-item {
+  font-size: 1rem;
+  list-style: none;
+}
+
+.nav-icon-item {
+  padding: 0;
 }
 
 .nav-link {
   text-decoration: none;
   color: white;
   transition: 0.3s all;
+  padding: 0;
 }
 
 .nav-link:hover {
@@ -58,7 +67,7 @@
     left: 0;
   }
 
-  .nav-item {
+  .nav-icon-item {
     padding: 10px 0;
     border-top: 1px solid $accent-green-1;
     border-bottom: 1px solid $accent-green-1;
