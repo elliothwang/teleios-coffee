@@ -1,8 +1,11 @@
 .carousel-container {
+  height: 140vh;
   width: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  justify-content: center;
 }
 
 // TODO: make carousel-container full vw in medium & small-width screens

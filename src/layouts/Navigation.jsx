@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as Search } from '../assets/icons/search.svg';
 import { ReactComponent as Person } from '../assets/icons/person.svg';
@@ -7,6 +7,7 @@ import '../styles/main.scss';
 
 function Navigation() {
   const [open, setOpen] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -16,9 +17,20 @@ function Navigation() {
     setOpen(false);
   };
 
+  const changeNavbarColor = () => {
+    console.log(window.scrollY);
+    window.scrollY >= 75 ? setNavScrolled(true) : setNavScrolled(false);
+    console.log(navScrolled);
+  };
+
+  useEffect(() => {
+    changeNavbarColor();
+    window.addEventListener('scroll', changeNavbarColor);
+  });
+
   return (
     <>
-      <nav className="navbar">
+      <nav className={navScrolled ? 'navbar navScrolled' : 'navbar'}>
         <ul className={open ? 'nav-links active' : 'nav-links'}>
           <li className="nav-text-item">
             <Link to="/shop" className="nav-link leftmost">

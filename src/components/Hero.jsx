@@ -6,10 +6,14 @@ function Hero() {
     <div className="hero-container">
       <section>
         <div className="hero-info">
-          <h1>Wildwood Coffee</h1>
-          <h2>An At-Home Brew For You</h2>
+          <h1>
+            <span>88</span> ROASTING
+          </h1>
+          <h2>Small batch coffee - roasted in Sunnyside District, SF</h2>
           <div>
-            <button name="shop-now">Shop Now</button>
+            <button name="shop-now" className="hero-button">
+              Shop Now
+            </button>
           </div>
         </div>
       </section>

@@ -1,14 +1,15 @@
 .hero-container {
   @include flex-start-ctr;
-  height: 50vh;
+  height: 60vh;
   width: 100%;
-  // background: url('https://ponbee.com/wp-content/uploads/high-quality-coffee-beans-800x416.jpg')
-  //   no-repeat center center fixed;
-  background-color: $accent-brown-2;
+  background: url('https://images.unsplash.com/photo-1610513491719-cb7e531e5ee7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWVzdGhldGljJTIwY29mZmVlfGVufDB8fDB8fA%3D%3D&w=1000&q=80')
+    no-repeat center center fixed;
+  background-position: 0 -30vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  position: relative;
 }
 
 .hero-info {
@@ -17,8 +18,26 @@
   color: $secondary-text-color;
 }
 
-button {
+h1 {
+  margin: 0;
+  font-size: 3em;
+  color: $secondary-text-color;
+}
+
+h2 {
+  margin: 0 0 3vh 0;
+  font-size: 1.5em;
+}
+
+span {
+  color: $red;
+}
+
+.hero-button {
   background-color: $button-background;
+  padding: 0.75em 2em;
+  font-size: 0.9em;
+  color: $secondary-text-color;
   &:hover {
     cursor: pointer;
   }
