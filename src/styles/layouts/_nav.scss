@@ -6,13 +6,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   padding: 0.75rem 0;
   z-index: 1;
   transition: background-color 0.25s ease 0s;
-  position: fixed;
+
+  @include below-768-px {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: $background;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transform: translate3d(-100vw, 0, 0);
+    transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
+  }
 }
 
-.navScrolled {
+.side-nav-shown {
+  @include below-768-px {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+  }
+}
+
+.nav-scrolled {
   background: none;
   background-color: $secondary-text-color;
 }
@@ -22,17 +42,6 @@
   grid-template-columns: repeat(4, auto);
   grid-gap: 1.5rem;
   list-style: none;
-
-  @include below-480-px {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    top: 80px;
-    left: -100%;
-    transition: 0.5s all;
-  }
 }
 
 .leftmost {
@@ -46,11 +55,6 @@
 
 .nav-icon-item {
   padding: 0;
-  @include below-480-px {
-    padding: 10px 0;
-    border-top: 1px solid $accent-green-1;
-    border-bottom: 1px solid $accent-green-1;
-  }
 }
 
 .nav-link {
@@ -60,28 +64,11 @@
   padding: 0;
 }
 
-.nav-links.active {
-  @include below-480-px {
-    background: $accent-brown-3;
-    left: 0;
-  }
-}
-
-.navScrolledLink {
+.nav-scrolled-link {
   background-color: none;
   color: $primary-text-color;
 }
 
 .nav-link:hover {
   color: $accent-green-1;
-}
-
-.nav-icon {
-  display: none;
-  font-size: 2.5rem;
-  cursor: pointer;
-
-  @include below-480-px {
-    display: flex;
-  }
 }

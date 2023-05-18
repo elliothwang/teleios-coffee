@@ -19,9 +19,7 @@ function Navigation() {
   };
 
   const changeNavbarColor = () => {
-    console.log(window.scrollY);
     window.scrollY >= 75 ? setNavScrolled(true) : setNavScrolled(false);
-    console.log(navScrolled);
   };
 
   useEffect(() => {
@@ -31,17 +29,25 @@ function Navigation() {
 
   return (
     <>
-      <nav className={navScrolled ? 'navbar navScrolled' : 'navbar'}>
-        <div className="nav-icon">
-          <NavButton handleButtonClick={handleButtonClick} shown={shown} />
-        </div>
-        <ul className={shown ? 'nav-links active' : 'nav-links'}>
+      <div className="nav-button-container">
+        <NavButton handleButtonClick={handleButtonClick} shown={shown} />
+      </div>
+      <nav
+        className={
+          navScrolled
+            ? 'navbar nav-scrolled'
+            : shown
+            ? 'navbar side-nav-shown'
+            : 'navbar'
+        }
+      >
+        <ul className="nav-links">
           <li className="nav-text-item">
             <Link
               to="/shop"
               className={
                 navScrolled
-                  ? 'nav-link leftmost navScrolledLink'
+                  ? 'nav-link leftmost nav-scrolled-link'
                   : 'nav-link leftmost'
               }
             >
@@ -51,16 +57,20 @@ function Navigation() {
           <li className="nav-text-item">
             <Link
               to="/subscriptions"
-              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              className={
+                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
+              }
             >
               Subscriptions
             </Link>
           </li>
         </ul>
-        <ul className={shown ? 'nav-links active' : 'nav-links'}>
+        <ul className="nav-links">
           <li className="nav-icon-item">
             <Link
-              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              className={
+                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
+              }
               onClick={closeMenu}
             >
               <Search />
@@ -69,7 +79,9 @@ function Navigation() {
           <li className="nav-icon-item">
             <Link
               to="/account"
-              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              className={
+                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
+              }
               onClick={closeMenu}
             >
               <Person />
@@ -78,7 +90,9 @@ function Navigation() {
           <li className="nav-icon-item">
             <Link
               to="/cart"
-              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              className={
+                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
+              }
               onClick={closeMenu}
             >
               <Cart />

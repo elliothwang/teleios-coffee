@@ -1,4 +1,4 @@
-.navButton {
+.nav-button {
   display: inline;
   position: absolute;
   top: 2.5vh;
@@ -15,23 +15,26 @@
   display: block;
   height: 3px;
   width: 30px;
-  background: $primary-text-color;
+  background: $secondary-text-color;
   margin: 6px auto;
 
   @include transition(0.75s, null);
 }
 
-.topBarActive {
+.top-bar-active {
   @extend .bar;
   @include sidebar-button-transition(9px, 45deg);
+  background: $primary-text-color;
 }
 
-.midBarActive {
+.mid-bar-active {
   @extend .bar;
   width: 0;
+  background: $primary-text-color;
 }
 
-.botBarActive {
+.bot-bar-active {
   @extend .bar;
   @include sidebar-button-transition(-9px, -45deg);
+  background: $primary-text-color;
 }
