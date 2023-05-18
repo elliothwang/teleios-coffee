@@ -33,12 +33,22 @@ function Navigation() {
       <nav className={navScrolled ? 'navbar navScrolled' : 'navbar'}>
         <ul className={open ? 'nav-links active' : 'nav-links'}>
           <li className="nav-text-item">
-            <Link to="/shop" className="nav-link leftmost">
+            <Link
+              to="/shop"
+              className={
+                navScrolled
+                  ? 'nav-link leftmost navScrolledLink'
+                  : 'nav-link leftmost'
+              }
+            >
               Shop
             </Link>
           </li>
           <li className="nav-text-item">
-            <Link to="/shop" className="nav-link">
+            <Link
+              to="/subscriptions"
+              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+            >
               Subscriptions
             </Link>
           </li>
@@ -48,17 +58,28 @@ function Navigation() {
         </div>
         <ul className={open ? 'nav-links active' : 'nav-links'}>
           <li className="nav-icon-item">
-            <Link className="nav-link" onClick={closeMenu}>
+            <Link
+              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              onClick={closeMenu}
+            >
               <Search />
             </Link>
           </li>
           <li className="nav-icon-item">
-            <Link to="/account" className="nav-link" onClick={closeMenu}>
+            <Link
+              to="/account"
+              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              onClick={closeMenu}
+            >
               <Person />
             </Link>
           </li>
           <li className="nav-icon-item">
-            <Link to="/cart" className="nav-link" onClick={closeMenu}>
+            <Link
+              to="/cart"
+              className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}
+              onClick={closeMenu}
+            >
               <Cart />
             </Link>
           </li>

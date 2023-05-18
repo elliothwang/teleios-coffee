@@ -2,11 +2,11 @@
   height: 4vh;
   width: 100%;
   background: transparent;
-  color: white;
+  color: $background;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   z-index: 1;
   transition: background-color 0.25s ease 0s;
   position: fixed;
@@ -44,13 +44,18 @@
   padding: 0;
 }
 
+.navScrolledLink {
+  background-color: none;
+  color: $primary-text-color;
+}
+
 .nav-link:hover {
   color: $accent-green-1;
 }
 
 .nav-icon {
   display: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 
