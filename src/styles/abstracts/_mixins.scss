@@ -114,3 +114,19 @@ $corner-size: 10vmin;
   justify-content: center;
   align-items: flex-start;
 }
+
+@mixin transition($time1, $time2) {
+  -webkit-transition: all $time1 $time2 ease;
+  -moz-transition: all $time1 $time2 ease;
+  -ms-transition: all $time1 $time2 ease;
+  -o-transition: all $time1 $time2 ease;
+  transition: all $time1 $time2 ease;
+}
+
+@mixin sidebar-button-transition($Y, $Z) {
+  -webkit-transform: translateY($Y) rotateZ($Z);
+  -moz-transform: translateY($Y) rotateZ($Z);
+  -ms-transform: translateY($Y) rotateZ($Z);
+  -o-transform: translateY($Y) rotateZ($Z);
+  transform: translateY($Y) rotateZ($Z);
+}

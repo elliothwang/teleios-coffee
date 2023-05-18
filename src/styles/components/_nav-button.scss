@@ -1,0 +1,37 @@
+.navButton {
+  display: inline;
+  position: absolute;
+  top: 2.5vh;
+  left: 5vw;
+  z-index: 3;
+  cursor: pointer;
+
+  @include above-768-px {
+    display: none;
+  }
+}
+
+.bar {
+  display: block;
+  height: 3px;
+  width: 30px;
+  background: $primary-text-color;
+  margin: 6px auto;
+
+  @include transition(0.75s, null);
+}
+
+.topBarActive {
+  @extend .bar;
+  @include sidebar-button-transition(9px, 45deg);
+}
+
+.midBarActive {
+  @extend .bar;
+  width: 0;
+}
+
+.botBarActive {
+  @extend .bar;
+  @include sidebar-button-transition(-9px, -45deg);
+}

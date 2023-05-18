@@ -3,18 +3,19 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as Search } from '../assets/icons/search.svg';
 import { ReactComponent as Person } from '../assets/icons/person.svg';
 import { ReactComponent as Cart } from '../assets/icons/cart.svg';
+import NavButton from '../components/NavButton';
 import '../styles/main.scss';
 
 function Navigation() {
-  const [open, setOpen] = useState(false);
+  const [shown, setShown] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleButtonClick = () => {
+    setShown(!shown);
   };
 
   const closeMenu = () => {
-    setOpen(false);
+    setShown(false);
   };
 
   const changeNavbarColor = () => {
@@ -31,7 +32,10 @@ function Navigation() {
   return (
     <>
       <nav className={navScrolled ? 'navbar navScrolled' : 'navbar'}>
-        <ul className={open ? 'nav-links active' : 'nav-links'}>
+        <div className="nav-icon">
+          <NavButton handleButtonClick={handleButtonClick} shown={shown} />
+        </div>
+        <ul className={shown ? 'nav-links active' : 'nav-links'}>
           <li className="nav-text-item">
             <Link
               to="/shop"
@@ -53,10 +57,7 @@ function Navigation() {
             </Link>
           </li>
         </ul>
-        <div onClick={handleClick} className="nav-icon">
-          {open ? 'close' : 'open'}
-        </div>
-        <ul className={open ? 'nav-links active' : 'nav-links'}>
+        <ul className={shown ? 'nav-links active' : 'nav-links'}>
           <li className="nav-icon-item">
             <Link
               className={navScrolled ? 'nav-link navScrolledLink' : 'nav-link'}

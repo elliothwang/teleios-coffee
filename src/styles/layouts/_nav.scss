@@ -22,6 +22,17 @@
   grid-template-columns: repeat(4, auto);
   grid-gap: 1.5rem;
   list-style: none;
+
+  @include below-480-px {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 80px;
+    left: -100%;
+    transition: 0.5s all;
+  }
 }
 
 .leftmost {
@@ -35,6 +46,11 @@
 
 .nav-icon-item {
   padding: 0;
+  @include below-480-px {
+    padding: 10px 0;
+    border-top: 1px solid $accent-green-1;
+    border-bottom: 1px solid $accent-green-1;
+  }
 }
 
 .nav-link {
@@ -42,6 +58,13 @@
   color: $secondary-text-color;
   transition: 0.3s all;
   padding: 0;
+}
+
+.nav-links.active {
+  @include below-480-px {
+    background: $accent-brown-3;
+    left: 0;
+  }
 }
 
 .navScrolledLink {
@@ -57,36 +80,8 @@
   display: none;
   font-size: 2.5rem;
   cursor: pointer;
-}
 
-@media only screen and (max-width: 480px) {
-  .navbar {
-    position: relative;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    top: 80px;
-    left: -100%;
-    transition: 0.5s all;
-  }
-
-  .nav-links.active {
-    background: $accent-brown-3;
-    left: 0;
-  }
-
-  .nav-icon-item {
-    padding: 10px 0;
-    border-top: 1px solid $accent-green-1;
-    border-bottom: 1px solid $accent-green-1;
-  }
-
-  .nav-icon {
+  @include below-480-px {
     display: flex;
   }
 }
