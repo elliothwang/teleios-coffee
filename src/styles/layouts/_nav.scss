@@ -52,7 +52,8 @@
 }
 
 // styles individual links on both topnav and sidenav
-.nav-links {
+.nav-text-links,
+.nav-icon-links {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 1.5rem;
@@ -76,6 +77,6 @@
   }
 }
 
-.leftmost {
+.nav-text-links:first-child {
   margin-left: -1rem;
 }

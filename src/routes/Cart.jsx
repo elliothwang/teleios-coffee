@@ -1,12 +1,7 @@
 import React from 'react';
-import Carousel from '../components/Carousel';
 
 function Cart() {
-  return (
-    <div>
-      <Carousel />
-    </div>
-  );
+  return <div>Cart</div>;
 }
 
 export default Cart;

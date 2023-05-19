@@ -13,21 +13,16 @@ function Navigation() {
 
   // TODO: breaks (able to scroll) if user scrolls immediately after clicking navbutton
   const openAndCloseSideNav = (event) => {
-    let className = event.target.className;
+    console.log(event.target.className);
     // disables/re-enables scrolling when sideNav is open/closed
-    if (!sideNavOpen && className === 'bar') {
-      $('body').css('overflow', 'hidden');
-    } else if (sideNavOpen && className === 'bar') {
-      $('body').css('overflow', 'auto');
-    }
-
-    if (
-      sideNavOpen &&
-      (className === 'link' || className === 'link leftmost')
-    ) {
+    if (event.target.className) {
+      if (sideNavOpen) $('body').css('overflow', 'auto');
+      else $('body').css('overflow', 'hidden');
+    } else {
       $('body').css('overflow', 'auto');
       setSideNavOpen(false);
     }
+
     setSideNavOpen(!sideNavOpen);
   };
 
@@ -57,39 +52,31 @@ function Navigation() {
             : 'navbar'
         }
       >
-        <ul className="nav-links">
+        <ul className="nav-text-links">
           <li>
-            <Link
-              to="/shop"
-              className="link leftmost"
-              onClick={openAndCloseSideNav}
-            >
+            <Link to="/shop" onClick={openAndCloseSideNav}>
               Shop
             </Link>
           </li>
           <li>
-            <Link
-              to="/subscriptions"
-              className="link"
-              onClick={openAndCloseSideNav}
-            >
+            <Link to="/subscriptions" onClick={openAndCloseSideNav}>
               Subscriptions
             </Link>
           </li>
         </ul>
-        <ul className="nav-links">
+        <ul className="nav-icon-links">
           <li>
-            <Link className="link" onClick={openAndCloseSideNav}>
+            <Link onClick={openAndCloseSideNav}>
               {sideNavOpen ? 'Search' : <Search />}
             </Link>
           </li>
           <li>
-            <Link to="/account" className="link" onClick={openAndCloseSideNav}>
+            <Link to="/account" onClick={openAndCloseSideNav}>
               {sideNavOpen ? 'Account' : <Person />}
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="link" onClick={openAndCloseSideNav}>
+            <Link to="/cart" onClick={openAndCloseSideNav}>
               {sideNavOpen ? 'Cart' : <Cart />}
             </Link>
           </li>
