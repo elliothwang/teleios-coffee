@@ -13,12 +13,12 @@ function Navigation() {
 
   // TODO: breaks (able to scroll) if user scrolls immediately after clicking navbutton
   const openAndCloseSideNav = (event) => {
-    console.log(event.target.className);
-    // disables/re-enables scrolling when sideNav is open/closed
+    // only navbutton disables/re-enables scrolling because it has classNames
     if (event.target.className) {
       if (sideNavOpen) $('body').css('overflow', 'auto');
       else $('body').css('overflow', 'hidden');
     } else {
+      // all nav links re-enable scrolling because they have no classNames (undefined)
       $('body').css('overflow', 'auto');
       setSideNavOpen(false);
     }
