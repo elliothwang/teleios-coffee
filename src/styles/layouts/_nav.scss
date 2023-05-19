@@ -1,6 +1,7 @@
 .navbar {
+  // full view top navbar styling
   height: 4vh;
-  width: 100%;
+  width: 100vw;
   background: transparent;
   color: $background;
   display: flex;
@@ -8,67 +9,73 @@
   align-items: center;
   position: fixed;
   padding: 0.75rem 0;
-  z-index: 1;
+  z-index: 2;
   // transition: background-color 0.25s ease 0s;
 
+  // sidenavbar styling
   @include below-768-px {
     height: 100vh;
-    width: 100vw;
     position: fixed;
     background-color: $background;
-    z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
     transform: translate3d(-100vw, 0, 0);
-    transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
   }
 }
 
-.side-nav-shown {
+// changes background color of navbar after some scrolling
+.page-scrolled {
+  background-color: $secondary-text-color;
+
+  ul > li > * {
+    background-color: none;
+    color: $primary-text-color;
+  }
+}
+
+.side-nav-open {
   @include below-768-px {
+    // slides sidenav onto screen when navbutton is clicked
+    @include flex-col-ctr-ctr;
+    transition: transform 0.5s cubic-bezier(0, 0.52, 0, 1);
     transform: translate3d(0vw, 0, 0);
     overflow: hidden;
+
+    // styling of sidenav links
+    ul > li > * {
+      background-color: none;
+      color: $primary-text-color;
+      font-size: 2rem;
+    }
   }
 }
 
-.nav-scrolled {
-  background: none;
-  background-color: $secondary-text-color;
-}
-
+// styles individual links on both topnav and sidenav
 .nav-links {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 1.5rem;
   list-style: none;
+
+  li > * {
+    font-size: 1rem;
+    list-style: none;
+    text-decoration: none;
+    color: $secondary-text-color;
+    transition: 0.3s all;
+    padding: 0;
+  }
+
+  li > *:hover {
+    color: $accent-green-1;
+  }
+
+  @include below-768-px {
+    @include flex-col-ctr-ctr;
+  }
 }
 
 .leftmost {
   margin-left: -1rem;
-}
-
-.nav-text-item {
-  font-size: 1rem;
-  list-style: none;
-}
-
-.nav-icon-item {
-  padding: 0;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: $secondary-text-color;
-  transition: 0.3s all;
-  padding: 0;
-}
-
-.nav-scrolled-link {
-  background-color: none;
-  color: $primary-text-color;
-}
-
-.nav-link:hover {
-  color: $accent-green-1;
 }

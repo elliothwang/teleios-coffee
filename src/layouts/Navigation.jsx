@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import $ from 'jquery';
 import { ReactComponent as Search } from '../assets/icons/search.svg';
 import { ReactComponent as Person } from '../assets/icons/person.svg';
 import { ReactComponent as Cart } from '../assets/icons/cart.svg';
@@ -7,19 +8,31 @@ import NavButton from '../components/NavButton';
 import '../styles/main.scss';
 
 function Navigation() {
-  const [shown, setShown] = useState(false);
-  const [navScrolled, setNavScrolled] = useState(false);
+  const [sideNavOpen, setSideNavOpen] = useState(false);
+  const [pageScrolled, setPageScrolled] = useState(false);
 
-  const handleButtonClick = () => {
-    setShown(!shown);
-  };
+  // TODO: breaks (able to scroll) if user scrolls immediately after clicking navbutton
+  const openAndCloseSideNav = (event) => {
+    let className = event.target.className;
+    // disables/re-enables scrolling when sideNav is open/closed
+    if (!sideNavOpen && className === 'bar') {
+      $('body').css('overflow', 'hidden');
+    } else if (sideNavOpen && className === 'bar') {
+      $('body').css('overflow', 'auto');
+    }
 
-  const closeMenu = () => {
-    setShown(false);
+    if (
+      sideNavOpen &&
+      (className === 'link' || className === 'link leftmost')
+    ) {
+      $('body').css('overflow', 'auto');
+      setSideNavOpen(false);
+    }
+    setSideNavOpen(!sideNavOpen);
   };
 
   const changeNavbarColor = () => {
-    window.scrollY >= 75 ? setNavScrolled(true) : setNavScrolled(false);
+    window.scrollY >= 75 ? setPageScrolled(true) : setPageScrolled(false);
   };
 
   useEffect(() => {
@@ -29,73 +42,55 @@ function Navigation() {
 
   return (
     <>
-      <div className="nav-button-container">
-        <NavButton handleButtonClick={handleButtonClick} shown={shown} />
+      <div>
+        <NavButton
+          handleButtonClick={openAndCloseSideNav}
+          sideNavOpen={sideNavOpen}
+        />
       </div>
       <nav
         className={
-          navScrolled
-            ? 'navbar nav-scrolled'
-            : shown
-            ? 'navbar side-nav-shown'
+          pageScrolled
+            ? 'navbar page-scrolled'
+            : sideNavOpen
+            ? 'navbar side-nav-open'
             : 'navbar'
         }
       >
         <ul className="nav-links">
-          <li className="nav-text-item">
+          <li>
             <Link
               to="/shop"
-              className={
-                navScrolled
-                  ? 'nav-link leftmost nav-scrolled-link'
-                  : 'nav-link leftmost'
-              }
+              className="link leftmost"
+              onClick={openAndCloseSideNav}
             >
               Shop
             </Link>
           </li>
-          <li className="nav-text-item">
+          <li>
             <Link
               to="/subscriptions"
-              className={
-                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
-              }
+              className="link"
+              onClick={openAndCloseSideNav}
             >
               Subscriptions
             </Link>
           </li>
         </ul>
         <ul className="nav-links">
-          <li className="nav-icon-item">
-            <Link
-              className={
-                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
-              }
-              onClick={closeMenu}
-            >
-              <Search />
+          <li>
+            <Link className="link" onClick={openAndCloseSideNav}>
+              {sideNavOpen ? 'Search' : <Search />}
             </Link>
           </li>
-          <li className="nav-icon-item">
-            <Link
-              to="/account"
-              className={
-                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
-              }
-              onClick={closeMenu}
-            >
-              <Person />
+          <li>
+            <Link to="/account" className="link" onClick={openAndCloseSideNav}>
+              {sideNavOpen ? 'Account' : <Person />}
             </Link>
           </li>
-          <li className="nav-icon-item">
-            <Link
-              to="/cart"
-              className={
-                navScrolled ? 'nav-link nav-scrolled-link' : 'nav-link'
-              }
-              onClick={closeMenu}
-            >
-              <Cart />
+          <li>
+            <Link to="/cart" className="link" onClick={openAndCloseSideNav}>
+              {sideNavOpen ? 'Cart' : <Cart />}
             </Link>
           </li>
         </ul>
