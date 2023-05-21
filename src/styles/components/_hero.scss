@@ -1,10 +1,9 @@
 .hero-container {
   @include flex-start-ctr;
-  height: 60vh;
+  height: 80vh;
   width: 100%;
   background: url('https://images.unsplash.com/photo-1610513491719-cb7e531e5ee7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWVzdGhldGljJTIwY29mZmVlfGVufDB8fDB8fA%3D%3D&w=1000&q=80')
     no-repeat center center fixed;
-  background-position: 0 -30vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -12,21 +11,44 @@
   position: relative;
 }
 
+.hero-container::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .hero-info {
   // TODO: make hero-info width responsive
-  width: 75%;
+  position: relative;
+  width: 100%;
   margin: 0 25%;
   color: $secondary-text-color;
+
+  @include below-768-px {
+    width: 75%;
+  }
 }
 
 h1 {
   margin: 0;
   font-size: 3em;
+
+  @include below-480-px {
+    font-size: 2.25em;
+  }
 }
 
 h2 {
   margin: 0 0 3vh 0;
   font-size: 1.5em;
+
+  @include below-480-px {
+    font-size: 1em;
+  }
 }
 
 span {
@@ -35,10 +57,36 @@ span {
 
 .hero-button {
   background-color: $button-background;
-  padding: 0.75em 2em;
+  background-size: 200% auto;
+  padding: 1em 2em;
   font-size: 0.9em;
+  font-family: $roboto;
+  text-align: center;
+  text-transform: uppercase;
   color: $secondary-text-color;
+  border-radius: 0.5rem;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0rem 0rem 1rem -0.75rem $button-background;
+  background-image: linear-gradient(
+    45deg,
+    $accent-green-1 0%,
+    $button-background 100%
+  );
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
   &:hover {
+    background-position: right center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-position: right center;
+    text-decoration: none;
     cursor: pointer;
   }
 }

@@ -1,6 +1,6 @@
 .navbar {
   // full view top navbar styling
-  height: 4vh;
+  height: 2.5vh;
   width: 100vw;
   background: transparent;
   color: $background;
@@ -10,7 +10,6 @@
   position: fixed;
   padding: 0.75rem 0;
   z-index: 2;
-  // transition: background-color 0.25s ease 0s;
 
   // sidenavbar styling
   @include below-768-px {
@@ -53,7 +52,8 @@
 
 // styles individual links on both topnav and sidenav
 .nav-text-links,
-.nav-icon-links {
+.nav-icon-links,
+.nav-logo-link {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 1.5rem;
@@ -80,3 +80,21 @@
 .nav-text-links:first-child {
   margin-left: -1rem;
 }
+
+.nav-logo-link {
+  li > * {
+    font-size: 1.75rem;
+  }
+
+  li > *:hover {
+    color: none;
+  }
+
+  li > * > span {
+    color: $red;
+  }
+}
+
+// span {
+//   color: $red;
+// }

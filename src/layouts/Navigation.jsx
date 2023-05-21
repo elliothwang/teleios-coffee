@@ -64,6 +64,15 @@ function Navigation() {
             </Link>
           </li>
         </ul>
+        <ul className="nav-logo-link">
+          <li>
+            <Link to="/" onClick={openAndCloseSideNav}>
+              <div>
+                <span>88</span> ROASTING
+              </div>
+            </Link>
+          </li>
+        </ul>
         <ul className="nav-icon-links">
           <li>
             <Link onClick={openAndCloseSideNav}>

@@ -1,7 +1,5 @@
 import '../styles/main.scss';
 
-// ! FIX: background images aren't rendering
-
 const CatalogItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
