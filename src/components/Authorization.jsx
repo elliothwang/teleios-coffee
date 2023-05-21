@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/main.scss';
 // import {
 //   signOutOfAcc,
-// } from '../utils/firebase/firebase.util';
+// } from '../utils/firebase/firebase.utils';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 

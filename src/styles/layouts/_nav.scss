@@ -30,6 +30,10 @@
   ul > li > * {
     background-color: none;
     color: $primary-text-color;
+
+    &:hover {
+      color: $accent-green-1;
+    }
   }
 }
 
@@ -66,10 +70,14 @@
     color: $secondary-text-color;
     transition: 0.3s all;
     padding: 0;
-  }
 
-  li > *:hover {
-    color: $accent-green-1;
+    &:hover {
+      color: $red;
+
+      @include below-768-px {
+        color: $accent-green-1;
+      }
+    }
   }
 
   @include below-768-px {
@@ -84,17 +92,15 @@
 .nav-logo-link {
   li > * {
     font-size: 1.75rem;
+
+    span {
+      color: $red;
+    }
   }
 
-  li > *:hover {
-    color: none;
-  }
-
-  li > * > span {
-    color: $red;
+  @include below-768-px {
+    position: fixed;
+    top: 1rem;
+    margin: auto;
   }
 }
-
-// span {
-//   color: $red;
-// }

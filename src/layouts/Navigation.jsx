@@ -4,10 +4,12 @@ import $ from 'jquery';
 import { ReactComponent as Search } from '../assets/icons/search.svg';
 import { ReactComponent as Person } from '../assets/icons/person.svg';
 import { ReactComponent as Cart } from '../assets/icons/cart.svg';
+import useWindowSize from '../utils/helperFunctions/window.utils';
 import NavButton from '../components/NavButton';
 import '../styles/main.scss';
 
 function Navigation() {
+  const screen = useWindowSize();
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const [pageScrolled, setPageScrolled] = useState(false);
 
@@ -29,6 +31,13 @@ function Navigation() {
   const changeNavbarColor = () => {
     window.scrollY >= 75 ? setPageScrolled(true) : setPageScrolled(false);
   };
+
+  useEffect(() => {
+    if (screen.width >= 769 && sideNavOpen) {
+      setSideNavOpen(false);
+      $('body').css('overflow', 'auto');
+    }
+  });
 
   useEffect(() => {
     changeNavbarColor();

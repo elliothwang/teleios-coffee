@@ -2,12 +2,12 @@ import { useState } from 'react';
 import '../styles/main.scss';
 import CatalogItem from './CatalogItem';
 import categories from '../assets/elements/categories';
-import useWindowSize from '../utils/helperFunctions/window.util';
+import useWindowSize from '../utils/helperFunctions/window.utils';
 
 // TODO: make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
 
 function Carousel() {
-  const window = useWindowSize();
+  const screen = useWindowSize();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchPosition, setTouchPosition] = useState(null);
   const length = categories && categories.length;
@@ -52,9 +52,9 @@ function Carousel() {
   };
 
   // display 1 carousel item up to small-width screens
-  if (window.width <= 480 && window.width > 0) {
+  if (screen.width <= 480 && screen.width > 0) {
     show = 1;
-  } else if (window.width <= 768 && window.width > 481) {
+  } else if (screen.width <= 768 && screen.width > 481) {
     // display 2 carousel items up to medium-width screens
     show = 2;
   } else {

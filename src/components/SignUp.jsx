@@ -6,7 +6,7 @@ import {
   signUpWithEmailAndPW,
   getRedirectResults,
   createUserDoc,
-} from '../utils/firebase/firebase.util';
+} from '../utils/firebase/firebase.utils';
 
 const defaultFormFields = {
   firstName: '',
