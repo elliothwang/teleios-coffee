@@ -1,4 +1,4 @@
-// TODO: import images from image files instead of urls
+// TODO (for MVP): import images from image files instead of urls
 
 const categories = [
   {

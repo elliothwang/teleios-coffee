@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
 
 function ProtectedRoute({ component: Component, ...props }) {
-  // TODO: remove var after fixing authentication
+  // TODO (after MVP): remove var after fixing authentication (not really sure what the issue is though)
   const isAuthenticated = false;
   return (
     <Route

@@ -13,7 +13,6 @@ function Navigation() {
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const [pageScrolled, setPageScrolled] = useState(false);
 
-  // TODO: breaks (able to scroll) if user scrolls immediately after clicking navbutton
   const openAndCloseSideNav = (event) => {
     // only navbutton disables/re-enables scrolling because it has classNames
     if (event.target.className) {
@@ -44,6 +43,7 @@ function Navigation() {
     window.addEventListener('scroll', changeNavbarColor);
   });
 
+  // TODO (after MVP): refactor navbar to be single ul (https://www.w3schools.com/howto/howto_css_topnav_centered.asp)
   return (
     <>
       <div>

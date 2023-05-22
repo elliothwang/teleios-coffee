@@ -64,12 +64,17 @@
   list-style: none;
 
   li > * {
-    font-size: 1rem;
+    font-size: 1.15rem;
     list-style: none;
     text-decoration: none;
+    text-transform: uppercase;
     color: $secondary-text-color;
     transition: 0.3s all;
     padding: 0;
+
+    @include below-1024-px {
+      font-size: 1rem;
+    }
 
     &:hover {
       color: $red;
@@ -90,6 +95,11 @@
 }
 
 .nav-logo-link {
+  position: fixed;
+  left: 43vw;
+  margin: 0 auto;
+  width: 100vw;
+
   li > * {
     font-size: 1.75rem;
 

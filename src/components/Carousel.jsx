@@ -4,7 +4,7 @@ import CatalogItem from './CatalogItem';
 import categories from '../assets/elements/categories';
 import useWindowSize from '../utils/helperFunctions/window.utils';
 
-// TODO: make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
+// TODO (after MVP): make infinite loop carousel (https://dev.to/rakumairu/how-to-handle-infinite-loop-in-react-carousel-43ae)
 
 function Carousel() {
   const screen = useWindowSize();

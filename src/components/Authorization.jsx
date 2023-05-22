@@ -17,7 +17,7 @@ const defaultFormFields = {
 function Authorization() {
   const [registered, setRegistered] = useState(true);
 
-  // TODO: move log out function to navbar
+  // TODO (after MVP): move log out function to navbar
   // const handleLogout = async () => {
   //   await signOutOfAcc();
   // };
