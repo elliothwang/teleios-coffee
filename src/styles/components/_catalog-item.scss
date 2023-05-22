@@ -1,22 +1,31 @@
 .catalog-item-container {
-  height: 35vh;
+  height: 50vh;
   display: flex;
-  // flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  // background-color: $accent-brown-3;
-  // position: relative;
-  border: 1px solid black;
+}
 
-  h2 {
-    font-weight: bold;
-    // margin: 0 6px 0;
-    font-size: 22px;
+.item-info {
+  // margin-top: 2.5rem;
+  text-align: center;
+
+  h1 {
+    font-family: $libre;
+    font-size: 2rem;
     color: $primary-text-color;
   }
 
-  p {
-    font-size: 16px;
+  h2 {
+    font-family: $crimson;
+    font-size: 1.1rem;
+    width: 80%;
+    margin: 1rem auto;
     color: $primary-text-color;
+  }
+
+  img {
+    // height: 100%;
+    // width: 100%;
+    margin: auto;
   }
 }

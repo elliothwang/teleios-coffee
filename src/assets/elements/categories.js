@@ -1,29 +1,35 @@
 // TODO (for MVP): import images from image files instead of urls
+import Bag from '../images/Bag.png';
 
 const categories = [
   {
     id: 1,
-    title: 'Arabica',
-    imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBUq50ys3vE2iL6mXyrOY-ylzlb2XdD9kIVXXpBbXne1J0kPJ3z3ZD_dhpfgw8rSf1JNw&usqp=CAU',
+    title: 'Ethiopia',
+    description:
+      'Vibrant, fruity, and flowery. Known for its full body and complex flavor profile.',
+    image: Bag,
+    price: '$20',
   },
   {
     id: 2,
-    title: 'Robusta',
-    imageUrl:
-      'https://circawho.com/wp-content/uploads/image-test-filler-blank.jpg',
+    title: 'Honduras',
+    description: 'Lorem ipsum dolor sit amet consectetur',
+    image: Bag,
+    price: '$20',
   },
   {
     id: 3,
     title: 'Excelsa',
-    imageUrl:
-      'https://circawho.com/wp-content/uploads/image-test-filler-blank.jpg',
+    description: 'Lorem ipsum dolor sit amet consectetur',
+    image: Bag,
+    price: '$20',
   },
   {
     id: 4,
     title: 'Liberica',
-    imageUrl:
-      'https://circawho.com/wp-content/uploads/image-test-filler-blank.jpg',
+    description: 'Lorem ipsum dolor sit amet consectetur',
+    image: Bag,
+    price: '$20',
   },
 ];
 

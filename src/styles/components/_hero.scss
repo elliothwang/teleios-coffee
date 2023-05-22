@@ -1,6 +1,6 @@
 .hero-container {
   @include flex-start-ctr;
-  height: 80vh;
+  height: 75vh;
   width: 100%;
   background: url('https://images.unsplash.com/photo-1610513491719-cb7e531e5ee7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWVzdGhldGljJTIwY29mZmVlfGVufDB8fDB8fA%3D%3D&w=1000&q=80')
     no-repeat center center fixed;
@@ -22,7 +22,6 @@
 }
 
 .hero-info {
-  // TODO: make hero-info width responsive
   position: relative;
   width: 100%;
   margin: 0 25%;

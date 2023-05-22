@@ -8,6 +8,7 @@ import useWindowSize from '../utils/helperFunctions/window.utils';
 import NavButton from '../components/NavButton';
 import '../styles/main.scss';
 
+// TODO (for MVP): fix icon links (cannot click them)
 function Navigation() {
   const screen = useWindowSize();
   const [sideNavOpen, setSideNavOpen] = useState(false);

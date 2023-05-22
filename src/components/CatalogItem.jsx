@@ -1,18 +1,13 @@
 import '../styles/main.scss';
 
 const CatalogItem = ({ category }) => {
-  const { imageUrl, title } = category;
+  const { title, description, image } = category;
   return (
     <div className="catalog-item-container">
-      <div
-        className="catalog-item-bg-img"
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-        }}
-      />
-      <div className="catalog-item-body">
-        <h2>{title}</h2>
-        <p>Shop Now</p>
+      <div className="item-info">
+        <h1>{title}</h1>
+        <h2>{description}</h2>
+        <img src={image} alt="coffee beans bag" />
       </div>
     </div>
   );
